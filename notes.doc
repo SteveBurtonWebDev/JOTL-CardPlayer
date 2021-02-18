@@ -1,0 +1,15 @@
+Random number function
+
+
+function randomInt(){
+    let num = Math.floor(Math.random() * (numArray.length));
+    numArray[num]++;
+}
+
+
+
+TO BE ADDED
+===========
+
+Fonts
+Do we want stats tracked here too?

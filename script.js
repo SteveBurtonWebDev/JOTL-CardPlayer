@@ -1,7 +1,6 @@
 
 function cardDragged (ev) {
     cardDraggedId = ev.target.id;
-    console.log("dragging",cardDraggedId);
 }
 
 function setCardListeners (listenerClass) {
@@ -20,6 +19,9 @@ function displayCardsMain (displayStatus) {
         if (abilityCards[i].cardStatus == displayStatus ) {
             newImage[i] = document.createElement("img");
             newImage[i].src = abilityCards[i].cardImg;
+            newImage[i].onclick = function () {
+                newImage[i].classList.toggle("cardSelected")
+            }
             newImage[i].classList.add("card");
             newImage[i].setAttribute("id",abilityCards[i].cardId);
             ulElement.append(newImage[i]);
@@ -101,7 +103,7 @@ function displayHandMain() {
     let distext = document.querySelector(".mainText");
     distext.innerHTML = "Hand";
     displayCardsMain("hand");
-    displayRightA("Discarded","discard");
+    displayRightA("Discard","discard");
     displayRightB("Lost","lost");
 }
 
@@ -117,7 +119,7 @@ function displayLostMain() {
     let distext = document.querySelector(".mainText");
     distext.innerHTML = "Lost";
     displayCardsMain("lost");
-    displayRightA("Discarded","discard");
+    displayRightA("Discard","discard");
     displayRightB("Hand","hand");
 
 }
@@ -207,120 +209,399 @@ function rightCdropped (ev) {
     displayMainView();    
 }
 
+function returnDiscards () {
+    for (let i=0; i < abilityCards.length;i++) {
+        if (abilityCards[i].cardStatus == "discard") {
+            abilityCards[i].cardStatus = "hand";
+        }
+    }
+    currentView = "hand";
+    displayMainView();    
+}
+
+
+function shortRest () {
+        let idArray =[];
+        for (let i = 0;i < abilityCards.length;i++) {
+            if (abilityCards[i].cardStatus == "discard") {
+                idArray.push(abilityCards[i].cardId);
+            }
+        }
+        let cardToLose = Math.floor(Math.random() * (idArray.length));
+        if (confirm(`${abilityCards[idArray[cardToLose]].cardName} will be lost`)) {
+            abilityCards[idArray[cardToLose]].cardStatus="lost";
+            returnDiscards();
+        }
+}
+
+function demoCardClicked() {
+    abilityCards = demoCards;
+    itemCards = demoItemCards;
+    currentView = "hand";
+    displayItemCards();
+    displayMainView();
+}
+
+function hatchCardClicked () {
+    abilityCards = hatchCards;
+    itemCards = hatchItemCards;
+    currentView = "hand";
+    displayItemCards();
+    displayMainView();
+}
+
+function redCardClicked () {
+    abilityCards = redCards;
+    itemCards = redItemCards;
+    currentView = "hand";
+    displayItemCards();
+    displayMainView();
+}
+
+function voidCardClicked () {
+    abilityCards = voidCards;
+    itemCards = voidItemCards;
+    currentView = "hand";
+    displayItemCards();
+    displayMainView();
+}
+
+
+
+
 
 //***** */ main code
 
 // Setup Object
-var abilityCards = [
+
+
+const demoCards = [
     {
         cardId: 0,
         cardStatus: "hand",
-        cardImg: "images/VoidWarden/black-boon.png"
+        cardImg: "images/Demolitionist/cards-lev1/crushing-weight.png",
+        cardName: "Crushing Weight",
     },
     {
         cardId: 1,
         cardStatus: "hand",
-        cardImg: "images/VoidWarden/close-to-the-abyss.png"
+        cardImg: "images/Demolitionist/cards-lev1/explode.png",
+        cardName: "Explode",
     },   
     {
         cardId: 2,
         cardStatus: "hand",
-        cardImg: "images/VoidWarden/freeze-the-soul.png"
+        cardImg: "images/Demolitionist/cards-lev1/explosive-blitz.png",
+        cardName: "Explosive Blitz",
+
     },
     {
         cardId: 3,
         cardStatus: "hand",
-        cardImg: "images/VoidWarden/gift-of-the-void.png"
+        cardImg: "images/Demolitionist/cards-lev1/implode.png",
+        cardName: "Implode"
+    },  
+    {
+        cardId: 4,
+        cardStatus: "hand",
+        cardImg: "images/Demolitionist/cards-lev1/knock-out-the-support.png",
+        cardName: "Knock Out The Support",
+    },
+    {
+        cardId: 5,
+        cardStatus: "hand",
+        cardImg: "images/Demolitionist/cards-lev1/one-two-punch.png",
+        cardName: "One-Two Punch",
+    },   
+    {
+        cardId: 6,
+        cardStatus: "hand",
+        cardImg: "images/Demolitionist/cards-lev1/piston-punch.png",
+        cardName: "Piston Punch",
+    },
+    {
+        cardId: 7,
+        cardStatus: "hand",
+        cardImg: "images/Demolitionist/cards-lev1/the-big-one.png",
+        cardName: "The Big One",
+    },   
+    {
+        cardId: 8,
+        cardStatus: "hand",
+        cardImg: "images/Demolitionist/cards-lev1/windup.png",
+        cardName: "Windup"
+    },   
+]
+
+const hatchCards = [
+    {
+        cardId: 0,
+        cardStatus: "hand",
+        cardImg: "images/Hatchet/cards-lev1/center-mass.png",
+        cardName: "Center Mass",
+    },
+    {
+        cardId: 1,
+        cardStatus: "hand",
+        cardImg: "images/Hatchet/cards-lev1/close-cuts.png",
+        cardName: "Close Cuts",
+    },   
+    {
+        cardId: 2,
+        cardStatus: "hand", 
+        cardImg: "images/Hatchet/cards-lev1/disorienting-barrage.png",
+        cardName: "Disorienting Barrage",
+    },
+    {
+        cardId: 3,
+        cardStatus: "hand",
+        cardImg: "images/Hatchet/cards-lev1/double-throw.png",
+        cardName: "Double Throw",
+    },  
+    {
+        cardId: 4,
+        cardStatus: "hand",
+        cardImg: "images/Hatchet/cards-lev1/follow-through.png",
+        cardName: "Follow Through",
+    },
+    {
+        cardId: 5,
+        cardStatus: "hand",
+        cardImg: "images/Hatchet/cards-lev1/power-pitch.png",
+        cardName: "Power Pitch",
+    },   
+    {
+        cardId: 6,
+        cardStatus: "hand",
+        cardImg: "images/Hatchet/cards-lev1/retrieval.png",
+        cardName: "Retrieval",
+    },
+    {
+        cardId: 7,
+        cardStatus: "hand",
+        cardImg: "images/Hatchet/cards-lev1/second-wind.png",
+        cardName: "Second Wind",
+    },   
+    {
+        cardId: 8,
+        cardStatus: "hand",
+        cardImg: "images/Hatchet/cards-lev1/stopping-power.png",
+        cardName: "Stopping Power",
+    },   
+    {
+        cardId: 9,
+        cardStatus: "hand",
+        cardImg: "images/Hatchet/cards-lev1/the-favorite.png",
+        cardName: "The Favorite",
+    },  
+]
+
+const redCards = [
+    {
+        cardId: 0,
+        cardStatus: "hand",
+        cardImg: "images/RedGuard/cards-lev1/blinding-sickle.png",
+        cardName: "Blinding Sickle"
+    },
+    {
+        cardId: 1,
+        cardStatus: "hand",
+        cardImg: "images/RedGuard/cards-lev1/desert-night.png",
+        cardName: "Desert Night",
+    },   
+    {
+        cardId: 2,
+        cardStatus: "hand",
+        cardImg: "images/RedGuard/cards-lev1/flame-shroud.png",
+        cardName: "Flame Shroud",
+    },
+    {
+        cardId: 3,
+        cardStatus: "hand",
+        cardImg: "images/RedGuard/cards-lev1/flaming-sickle.png",
+        cardName: "Flaming Sickle",
+    },  
+    {
+        cardId: 4,
+        cardStatus: "hand",
+        cardImg: "images/RedGuard/cards-lev1/healing-sands.png",
+        cardName: "Healing Sands",
+    },
+    {
+        cardId: 5,
+        cardStatus: "hand",
+        cardImg: "images/RedGuard/cards-lev1/shield-of-the-desert.png",
+        cardName: "Shield Of The Desert",
+    },   
+    {
+        cardId: 6,
+        cardStatus: "hand",
+        cardImg: "images/RedGuard/cards-lev1/shield-spikes.png",
+        cardName: "Shield Spikes",
+    },
+    {
+        cardId: 7,
+        cardStatus: "hand",
+        cardImg: "images/RedGuard/cards-lev1/shocking-advance.png",
+        cardName: "Shocking Advance",
+
+    },   
+    {
+        cardId: 8,
+        cardStatus: "hand",
+        cardImg: "images/RedGuard/cards-lev1/strangling-chain.png",
+        cardName: "Strangling Chain",
+    },   
+    {
+        cardId: 9,
+        cardStatus: "hand",
+        cardImg: "images/RedGuard/cards-lev1/swift-strength.png",
+        cardName: "Swift Strength",
+    },  
+]
+
+const voidCards = [
+    {
+        cardId: 0,
+        cardStatus: "hand",
+        cardImg: "images/VoidWarden/cards-lev1/black-boon.png",
+        cardName: "Black Boon",
+    },
+    {
+        cardId: 1,
+        cardStatus: "hand",
+        cardImg: "images/VoidWarden/cards-lev1/close-to-the-abyss.png",
+        cardName: "Close To The Abyss",
+    },   
+    {
+        cardId: 2,
+        cardStatus: "hand",
+        cardImg: "images/VoidWarden/cards-lev1/freeze-the-soul.png",
+        cardName: "Freeze The Soul",
+    },
+    {
+        cardId: 3,
+        cardStatus: "hand",
+        cardImg: "images/VoidWarden/cards-lev1/gift-of-the-void.png",
+        cardName: "Gift Of The Void",
 
     },
     {
         cardId: 4,
         cardStatus: "hand",
-        cardImg: "images/VoidWarden/grasp-of-doom.png"
+        cardImg: "images/VoidWarden/cards-lev1/grasp-of-doom.png",
+        cardName: "Grasp Of Doom",
     },
     {
         cardId: 5,
         cardStatus: "hand",
-        cardImg: "images/VoidWarden/lure-of-the-void.png"
+        cardImg: "images/VoidWarden/cards-lev1/lure-of-the-void.png",
+        cardName: "Lure Of The Void",
     },   
     {
         cardId: 6,
         cardStatus: "hand",
-        cardImg: "images/VoidWarden/master-influence.png"
+        cardImg: "images/VoidWarden/cards-lev1/master-influence.png",
+        cardName: "Master Influence",
     },
     {
         cardId: 7,
         cardStatus: "hand",
-        cardImg: "images/VoidWarden/signs-of-the-void.png"
+        cardImg: "images/VoidWarden/cards-lev1/signs-of-the-void.png",
+        cardName: "Signs Of The Void",
 
     },
     {
         cardId: 8,
         cardStatus: "hand",
-        cardImg: "images/VoidWarden/suggestion.png"
+        cardImg: "images/VoidWarden/cards-lev1/suggestion.png",
+        cardName: "Suggestion",
     },
     {
         cardId: 9,
         cardStatus: "hand",
-        cardImg: "images/VoidWarden/turn-out-the-lights.png"
+        cardImg: "images/VoidWarden/cards-lev1/turn-out-the-lights.png",
+        cardName: "Turn Out The Lights",
 
     },
     {
         cardId: 10,
         cardStatus: "hand",
-        cardImg: "images/VoidWarden/wicked-scratch.png"
+        cardImg: "images/VoidWarden/cards-lev1/wicked-scratch.png",
+        cardName: "Wicked Scratch",
 
     },
     
 ]
 
-var itemCards = [
+const demoItemCards = [
     {
         cardId: 0,
-        cardStatus: "active",
-        cardImg: "images/Items/chain-armor.png"
-    },
-    {
-        cardId: 1,
-        cardStatus: "active",
-        cardImg: "images/Items/eagle-eye-goggles.png"
-    },
-    {
-        cardId: 2,
-        cardStatus: "active",
-        cardImg: "images/Items/healing-potion.png"
-    },
-    {
-        cardId: 3,
-        cardStatus: "active",
-        cardImg: "images/Items/heater-shield.png"
-    },
-    {
-        cardId: 4,
         cardStatus: "active",
         cardImg: "images/Items/iron-helmet.png"
     },
     {
-        cardId: 5,
+        cardId: 1,
+        cardStatus: "active",
+        cardImg: "images/Items/healing-potion.png"
+    },
+    
+]
+
+const hatchItemCards = [
+    {
+        cardId: 0,
+        cardStatus: "active",
+        cardImg: "images/Items/eagle-eye-goggles.png"
+    },
+    
+]
+const redItemCards = [
+    {
+        cardId: 0,
         cardStatus: "active",
         cardImg: "images/Items/iron-spear.png"
     },
+    {
+        cardId: 1,
+        cardStatus: "active",
+        cardImg: "images/Items/fateful-compass.png"
+    },
+    
+]
+const voidItemCards = [
+    {
+        cardId: 0,
+        cardStatus: "active",
+        cardImg: "images/Items/heater-shield.png"
+    },
+    
 ]
 
+
+var abilityCards = voidCards;
+var itemCards = demoItemCards;
 var currentView = "hand";
 var cardDraggedId = null;
 
 const rightButtonAPressed = document.querySelector(".rightAButton");
 const rightButtonBPressed = document.querySelector(".rightBButton");
+const returnDiscardsPressed = document.querySelector(".returnDiscardsButton")
+const shortRestPressed = document.querySelector(".shortRestButton");
 const mainArea = document.querySelector(".mainContainer");
 const rightAArea = document.querySelector(".rightAContainer");
 const rightBArea = document.querySelector(".rightBContainer");
 const rightCArea = document.querySelector(".rightCContainer");
-
+const demoCard = document.querySelector(".demoCardImg");
+const hatchCard = document.querySelector(".hatchCardImg");
+const redCard = document.querySelector(".redCardImg");
+const voidCard = document.querySelector(".voidCardImg");
 
 
 rightButtonAPressed.addEventListener("click",rightAClicked);
 rightButtonBPressed.addEventListener("click",rightBClicked);
+returnDiscardsPressed.addEventListener("click",returnDiscards)
+shortRestPressed.addEventListener("click",shortRest);
 mainArea.addEventListener("dragover", elementDraggedOver);
 mainArea.addEventListener("drop", maindropped);
 rightAArea.addEventListener("dragover", elementDraggedOver);
@@ -329,7 +610,10 @@ rightBArea.addEventListener("dragover", elementDraggedOver);
 rightBArea.addEventListener("drop", rightBdropped);
 rightCArea.addEventListener("dragover", elementDraggedOver);
 rightCArea.addEventListener("drop", rightCdropped);
-
+demoCard.addEventListener("click", demoCardClicked);
+hatchCard.addEventListener("click", hatchCardClicked);
+redCard.addEventListener("click", redCardClicked);
+voidCard.addEventListener("click", voidCardClicked);
 
 
 displayItemCards();

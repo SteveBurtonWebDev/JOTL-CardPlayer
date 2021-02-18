@@ -14,8 +14,21 @@ body {
 .leftContainer {
     border: 4px solid black;
     grid-area: 1 / 1 / -1 / 2;
-    background-color: rgba(0,0,255,0.2);
+    background-color: rgba(33,30,29,0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
+
+.leftContainer img {
+    width: 80%;
+    margin: 5px auto;
+}
+
+.leftContainer img:hover {
+    border: 5px solid black;
+}
+
 .mainView {
     border: 4px solid black;
     grid-area: 1 / 2 / 4 / 3 ;
@@ -24,8 +37,13 @@ body {
 }
 
 .mainView h4 {
+    background-color: rgba(33,30,29,0.6);
+    border-right: 4px solid black;
+    border-left: 4px solid black;
+    border-bottom: 4px solid black;
+    padding: 5px 20px;
     height: 5%;
-    margin: 5px auto;
+    margin: 0 auto 5px auto ;
     color: white;
     font-size: 30px;
     text-align: center;
@@ -40,23 +58,53 @@ body {
     align-items: flex-start ;
 }
 
-/* .mainView .mainButtonContainer {
+.mainView .mainButtonContainer {
     height: 7%;
-    background-color: blue;
-} */
+    border-top: 4px solid black;
+    display: flex;
+    justify-content: center;
+}
+
+.returnDiscardsButton {
+    background-color: rgb(54, 49, 48);
+    color: white;
+    margin: 5px;
+    padding: 0 10px;
+}
+
+.returnDiscardsButton:hover {
+    background-color: white;
+    color: rgb(54, 49, 48);
+}
+
+.shortRestButton {
+    background-color: rgb(54, 49, 48);
+    color: white;
+    margin: 5px;
+    padding: 0 10px;
+}
+
+.shortRestButton:hover {
+    background-color: white;
+    color: rgb(54, 49, 48);
+}
 
 .card { 
     opacity: 1;
     width: 12%;
     margin: 20px;
-    transition: all 0.15s;
+    transition: transform 0.15s;
 }
 
 .card:hover {
-  transform: scale(1.7) translateY(55px);
+  transform: scale(1.7) translateY(50px);
   cursor: pointer;
   z-index: 999;
     
+}
+
+.cardSelected {
+    border: 3px solid white;
 }
 
 .itemContainer {
@@ -86,7 +134,7 @@ body {
 .rightAContainer {
     border: 4px solid black;
     grid-area: 1 / 3 / 2 / -1;
-    background-color: rgba(61,47,41,0.5);
+    background-color: rgba(33,30,29,0.5);
     display: flex;
     flex-direction: column;
     justify-items: flex-start;
@@ -111,20 +159,26 @@ body {
     width: 30%;
     margin-left: auto;
     margin-top: auto;
-    border-left: 3px solid darkgray;
-    border-top: 3px solid darkgray;
+    border-left: 2px solid darkgray;
+    border-top: 2px solid darkgray;
     border-right: none;
     border-bottom: none;
-    background-color: blue;
+    background-color: rgb(54, 49, 48);
     color: white;
-    font-size: 18px;
     text-align: center;
+}
+
+.rightAContainer button:hover {
+    border-left: 2px solid rgb(54, 49, 48);
+    border-top: 2px solid rgb(54, 49, 48);
+    background-color: white;
+    color: rgb(54, 49, 48);
 }
 
 .rightBContainer {
     border: 4px solid black;
     grid-area: 2 / 3 / 3 / -1;
-    background-color: rgba(61,47,41,0.5);
+    background-color: rgba(33,30,29,0.5);
     display: flex;
     flex-direction: column;
     justify-items: flex-start;
@@ -153,20 +207,25 @@ body {
     border-top: 3px solid darkgray;
     border-right: none;
     border-bottom: none;
-    background-color: blue;
+    background-color:rgb(54, 49, 48);
     color: white;
-    font-size: 18px;
     text-align: center;
 }
 
 
+.rightBContainer button:hover {
+    border-left: 2px solid rgb(54, 49, 48);
+    border-top: 2px solid rgb(54, 49, 48);
+    background-color: white;
+    color: rgb(54, 49, 48);
+}
 
 
 
 .rightCContainer {
     border: 4px solid black;
     grid-area: 3 / 3 / 5 / -1;
-    background-color: rgba(61,47,41,0.5);
+    background-color: rgba(33,30,29,0.5);
     display: flex;
     flex-direction: column;
 }
