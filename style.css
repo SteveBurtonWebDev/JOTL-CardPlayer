@@ -5,7 +5,7 @@
 
 @font-face {
     font-family: 'pirata' ;
-    src: url('/Fonts/PirataOne-Regular.ttf');
+    src: url('/Fonts/PirataOne-Regular.woff') format('woff') ;
 }
 
 body {
