@@ -23,7 +23,7 @@ body {
     background-size: cover;
     display: grid;
     grid-template-columns: 10vw 80vw 10vw;
-    grid-template-rows: 10vh 10vh 60vh 20vh;
+    grid-template-rows: 15vh 15vh 50vh 20vh;
 }
 img {
     box-shadow: 4px 4px 4px rgb(33,30,29);
@@ -228,10 +228,8 @@ button {
 }
 
 .rightAContainer button {
-    transform: translatey(-7px);
     width: 30%;
-    margin-left: auto;
-    margin-top: auto;
+    margin: auto 0 0 auto;
     border-left: 1px solid #e0cdbd;
     border-top: 1px solid #e0cdbd;
     border-right: none;
@@ -274,11 +272,9 @@ button {
 }
 
 .rightBContainer button {
-    transform: translatey(-7px);
     font-size: 1em;
     width: 30%;
-    margin-left: auto;
-    margin-top: auto;
+    margin: auto 0 0 auto;
     border-left: 1px solid #e0cdbd;
     border-top: 1px solid #e0cdbd;
     border-right: none;
@@ -322,7 +318,7 @@ button {
 }
 
 .activeCard {
-    width: 80%;
+    width: 70%;
     margin: 5px;
     transition: all 0.15s;
  }

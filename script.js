@@ -170,9 +170,9 @@ function elementDraggedOver(ev) {
     ev.preventDefault();
 } 
 function maindropped (ev) {
-    ev.preventDefault();
-    abilityCards[cardDraggedId].cardStatus = currentView;
-    displayMainView();
+    // ev.preventDefault();
+    // abilityCards[cardDraggedId].cardStatus = currentView;
+    // displayMainView();
 }
 
 function rightAdropped (ev) {
