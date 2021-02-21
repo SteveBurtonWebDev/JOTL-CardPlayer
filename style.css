@@ -328,5 +328,7 @@ button {
  }
 
  @media only screen and (max-width: 1400px) {
-   
+   .activeCard:hover {
+       transform: scale(2.5) translateX(-50px) translateY(-25px);
+   }
 }

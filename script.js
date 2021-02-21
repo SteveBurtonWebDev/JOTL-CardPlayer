@@ -1,6 +1,9 @@
 
 function cardDragged (ev) {
     cardDraggedId = ev.target.id;
+    dragSrcEl = ev.target;
+    ev.dataTransfer.effectAllowed = 'move';
+    ev.dataTransfer.setData('text',dragSrcEl.innerHTML);
 }
 
 function setCardListeners (listenerClass) {
