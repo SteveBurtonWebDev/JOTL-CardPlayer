@@ -659,7 +659,11 @@ const hatchItemCards = [
         cardStatus: "active",
         cardImg: "images/Items/eagle-eye-goggles.png"
     },
-    
+    {
+        cardId: 1,
+        cardStatus: "active",
+        cardImg: "images/Items/mana-potion.png"
+    },
 ]
 const redItemCards = [
     {
@@ -679,6 +683,11 @@ const voidItemCards = [
         cardId: 0,
         cardStatus: "active",
         cardImg: "images/Items/heater-shield.png"
+    },
+    {
+        cardId: 1,
+        cardStatus: "active",
+        cardImg: "images/Items/mana-potion.png"
     },
     
 ]
