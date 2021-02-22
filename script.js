@@ -1,9 +1,6 @@
 
 function cardDragged (ev) {
     cardDraggedId = ev.target.id;
-    dragSrcEl = ev.target;
-    ev.dataTransfer.effectAllowed = 'move';
-    ev.dataTransfer.setData('text',dragSrcEl.innerHTML);
 }
 
 function setCardListeners (listenerClass) {
@@ -18,6 +15,13 @@ function displayCardsMain (displayStatus) {
     let ulElement = document.querySelector('.mainContainer');
     ulElement.innerHTML = "";
     var newImage = [];
+    cardsInView = 0;
+    for (let i=0; i < abilityCards.length;i++) {
+        if (abilityCards[i].cardStatus == displayStatus) {
+            cardsInView++;
+        }
+    }
+    
     for (let i=0; i < abilityCards.length;i++) {
         if (abilityCards[i].cardStatus == displayStatus ) {
             newImage[i] = document.createElement("img");
@@ -25,12 +29,22 @@ function displayCardsMain (displayStatus) {
             newImage[i].onclick = function () {
                 newImage[i].classList.toggle("cardSelected")
             }
-            newImage[i].classList.add("card");
+            if (cardsInView > 12) {
+                newImage[i].classList.add("smallCard");
+            } else {
+                newImage[i].classList.add("card");
+            }
+            
             newImage[i].setAttribute("id",abilityCards[i].cardId);
             ulElement.append(newImage[i]);
         }
     }
-    setCardListeners("card");
+    if (cardsInView <= 12) {
+        setCardListeners("card");
+    } else {
+        setCardListeners("smallCard");
+    }
+
 }
 
 
@@ -104,8 +118,13 @@ function displayItemCards () {
 
 function displayHandMain() {
     let distext = document.querySelector(".mainText");
-    distext.innerHTML = "Hand";
     displayCardsMain("hand");
+
+    if (cardsInView <= maxCards) { 
+        distext.innerHTML = "Hand";
+    } else {
+        distext.innerHTML = `Hand - Lose Down to ${maxCards}`;
+    }
     displayRightA("Discard","discard");
     displayRightB("Lost","lost");
 }
@@ -238,6 +257,7 @@ function shortRest () {
 }
 
 function demoCardClicked() {
+    maxCards = 9;
     abilityCards = demoCards;
     itemCards = demoItemCards;
     currentView = "hand";
@@ -246,6 +266,7 @@ function demoCardClicked() {
 }
 
 function hatchCardClicked () {
+    maxCards = 10;
     abilityCards = hatchCards;
     itemCards = hatchItemCards;
     currentView = "hand";
@@ -254,6 +275,7 @@ function hatchCardClicked () {
 }
 
 function redCardClicked () {
+    maxCards = 10;
     abilityCards = redCards;
     itemCards = redItemCards;
     currentView = "hand";
@@ -262,6 +284,7 @@ function redCardClicked () {
 }
 
 function voidCardClicked () {
+    maxCards = 11;
     abilityCards = voidCards;
     itemCards = voidItemCards;
     currentView = "hand";
@@ -334,6 +357,24 @@ const demoCards = [
         cardImg: "images/Demolitionist/cards-lev1/windup.png",
         cardName: "Windup"
     },   
+    {
+        cardId: 9,
+        cardStatus: "hand",
+        cardImg: "images/Demolitionist/cards-x/level.png",
+        cardName: "Level",
+    },
+    {
+        cardId: 10,
+        cardStatus: "hand",
+        cardImg: "images/Demolitionist/cards-x/lobbed-charge.png",
+        cardName: "Lobbed Charge",
+    },   
+    {
+        cardId: 11,
+        cardStatus: "hand",
+        cardImg: "images/Demolitionist/cards-x/rubble.png",
+        cardName: "Rubble",
+    },   
 ]
 
 const hatchCards = [
@@ -397,7 +438,26 @@ const hatchCards = [
         cardImg: "images/Hatchet/cards-lev1/the-favorite.png",
         cardName: "The Favorite",
     },  
+    {
+        cardId: 10,
+        cardStatus: "hand",
+        cardImg: "images/Hatchet/cards-x/care-package.png",
+        cardName: "Care Package",
+    },   
+    {
+        cardId: 11,
+        cardStatus: "hand",
+        cardImg: "images/Hatchet/cards-x/extra-lift.png",
+        cardName: "Extra Life",
+    },   
+    {
+        cardId: 12,
+        cardStatus: "hand",
+        cardImg: "images/Hatchet/cards-x/fancy-hat.png",
+        cardName: "Fancy Hat",
+    },  
 ]
+
 
 const redCards = [
     {
@@ -461,7 +521,29 @@ const redCards = [
         cardImg: "images/RedGuard/cards-lev1/swift-strength.png",
         cardName: "Swift Strength",
     },  
+    {
+        cardId: 10,
+        cardStatus: "hand",
+        cardImg: "images/RedGuard/cards-x/blade-dance.png",
+        cardName: "Blade Dance",
+
+    },   
+    {
+        cardId: 11,
+        cardStatus: "hand",
+        cardImg: "images/RedGuard/cards-x/precision-strike.png",
+        cardName: "Precision Strike",
+    },   
+    {
+        cardId: 12,
+        cardStatus: "hand",
+        cardImg: "images/RedGuard/cards-x/warrior-of-the-sun.png",
+        cardName: "Warrior Of The Sun",
+    },  
+
 ]
+
+
 
 const voidCards = [
     {
@@ -534,6 +616,26 @@ const voidCards = [
         cardName: "Wicked Scratch",
 
     },
+    {
+        cardId: 11,
+        cardStatus: "hand",
+        cardImg: "images/VoidWarden/cards-x/cold-embrace.png",
+        cardName: "Cold Embrace",
+    },
+    {
+        cardId: 12,
+        cardStatus: "hand",
+        cardImg: "images/VoidWarden/cards-x/resigned-frenzy.png",
+        cardName: "Resigned Frenzy",
+
+    },
+    {
+        cardId: 13,
+        cardStatus: "hand",
+        cardImg: "images/VoidWarden/cards-x/sap-warmth.png",
+        cardName: "Sap Warmth",
+
+    },
     
 ]
 
@@ -581,10 +683,11 @@ const voidItemCards = [
     
 ]
 
-
+var maxCards = 11;
 var abilityCards = voidCards;
 var itemCards = demoItemCards;
 var currentView = "hand";
+var cardsInView = 0;
 var cardDraggedId = null;
 
 const rightButtonAPressed = document.querySelector(".rightAButton");

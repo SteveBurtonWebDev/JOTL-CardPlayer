@@ -118,7 +118,6 @@ button {
     justify-content: center;
 }
 
-
 .card { 
     opacity: 1;
     width: 12%;
@@ -130,6 +129,19 @@ button {
   transform: scale(1.7) translateY(50px);
   cursor: pointer;
   z-index: 999;
+}
+
+.smallCard { 
+    opacity: 1;
+    width: 8%;
+    margin: 20px;
+    transition: transform 0.15s;
+}
+
+.smallCard:hover {
+  transform: scale(3) translateY(50px);
+  cursor: pointer;
+  z-index: 999;
     
 }
 
@@ -139,11 +151,18 @@ button {
 
 @media only screen and (max-width: 1400px) {
     .card {
-        width: 11%;
+        width: 12%;
     }
     .card:hover {
-        transform: scale(2.3) translateY(40px);
+        transform: scale(2.2) translateY(40px);
     }
+    .smallCard { 
+        width: 8%;
+    }
+    .smallCard:hover {
+        transform: scale(2.8) translateY(40px);
+    }
+    
 }
 
 
