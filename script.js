@@ -1,4 +1,3 @@
-
 function cardDragged (ev) {
     cardDraggedId = ev.target.id;
 }
@@ -95,7 +94,6 @@ function displayRightB (textToDisplay,valuetoDisplay) {
     lostValue.innerHTML=cardsInLost;
 }
 
-
 function displayItemCards () {
     let ulElement = document.querySelector('.itemContainer');
     ulElement.innerHTML = "";
@@ -105,7 +103,8 @@ function displayItemCards () {
             newImage[i] = document.createElement("img");
             newImage[i].src = itemCards[i].cardImg;
             newImage[i].onclick = function () {
-                newImage[i].classList.toggle("itemUsed")
+                newImage[i].classList.toggle("itemUsed");
+                newImage[i].classList.toggle("itemCard");
             }
             newImage[i].classList.add("itemCard");
             newImage[i].setAttribute("id",itemCards[i].cardId);
@@ -114,7 +113,6 @@ function displayItemCards () {
         }
     }
 }
-
 
 function displayHandMain() {
     let distext = document.querySelector(".mainText");

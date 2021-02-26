@@ -154,7 +154,7 @@ button {
         width: 12%;
     }
     .card:hover {
-        transform: scale(2.2) translateY(40px);
+        transform: scale(2.1) translateY(30px);
     }
     .smallCard { 
         width: 8%;
@@ -164,10 +164,6 @@ button {
     }
     
 }
-
-
-
-
 
 .returnDiscardsButton {
     line-height: 100%;
