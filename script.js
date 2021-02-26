@@ -648,6 +648,12 @@ const demoItemCards = [
         cardStatus: "active",
         cardImg: "images/Items/healing-potion.png"
     },
+    {
+        cardId: 2,
+        cardStatus: "active",
+        cardImg: "images/Items/winged-shoes.png"
+    },
+    
     
 ]
 
@@ -686,6 +692,11 @@ const voidItemCards = [
         cardId: 1,
         cardStatus: "active",
         cardImg: "images/Items/mana-potion.png"
+    },
+    {
+        cardId: 2,
+        cardStatus: "active",
+        cardImg: "images/Items/winged-shoes.png"
     },
     
 ]
