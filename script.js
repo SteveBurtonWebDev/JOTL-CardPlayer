@@ -373,6 +373,12 @@ const demoCards = [
         cardImg: "images/Demolitionist/cards-x/rubble.png",
         cardName: "Rubble",
     },   
+    {
+        cardId: 12,
+        cardStatus: "hand",
+        cardImg: "images/Demolitionist/cards-lev2/crash-protocol.png",
+        cardName: "Crash Protocol",
+    },   
 ]
 
 const hatchCards = [
@@ -453,6 +459,12 @@ const hatchCards = [
         cardStatus: "hand",
         cardImg: "images/Hatchet/cards-x/fancy-hat.png",
         cardName: "Fancy Hat",
+    }, 
+    {
+        cardId: 13,
+        cardStatus: "hand",
+        cardImg: "images/Hatchet/cards-lev2/ricochet.png",
+        cardName: "Ricochet",
     },  
 ]
 
@@ -537,6 +549,12 @@ const redCards = [
         cardStatus: "hand",
         cardImg: "images/RedGuard/cards-x/warrior-of-the-sun.png",
         cardName: "Warrior Of The Sun",
+    },  
+    {
+        cardId: 13,
+        cardStatus: "hand",
+        cardImg: "images/RedGuard/cards-lev2/harvest-sickle.png",
+        cardName: "Harvest Sickle",
     },  
 
 ]
@@ -634,6 +652,13 @@ const voidCards = [
         cardName: "Sap Warmth",
 
     },
+    {
+        cardId: 14,
+        cardStatus: "hand",
+        cardImg: "images/VoidWarden/cards-lev2/crushing-cold.png",
+        cardName: "Crushing Cold",
+
+    },
     
 ]
 
@@ -702,7 +727,7 @@ const voidItemCards = [
 ]
 
 var maxCards = 11;
-var abilityCards = voidCards;
+var abilityCards = demoCards;
 var itemCards = demoItemCards;
 var currentView = "hand";
 var cardsInView = 0;
