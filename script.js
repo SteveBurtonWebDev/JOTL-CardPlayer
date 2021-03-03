@@ -9,7 +9,6 @@ function setCardListeners (listenerClass) {
     };
 }
 
-
 function displayCardsMain (displayStatus) {
     let ulElement = document.querySelector('.mainContainer');
     ulElement.innerHTML = "";
@@ -46,9 +45,6 @@ function displayCardsMain (displayStatus) {
 
 }
 
-
-
-
 function displayActiveCards () {
     let ulElement = document.querySelector('.activeContainer');
     ulElement.innerHTML = "";
@@ -65,8 +61,6 @@ function displayActiveCards () {
     setCardListeners("activeCard");
 }
 
-
-
 function displayRightA (textToDisplay,valuetoDisplay) {
     let distext = document.querySelector(".rightAText");
     let disvalue = document.querySelector(".rightAValue");
@@ -79,7 +73,6 @@ function displayRightA (textToDisplay,valuetoDisplay) {
     }
     disvalue.innerHTML=cardsInDiscard;
 }
-
 
 function displayRightB (textToDisplay,valuetoDisplay) {
     let lostText = document.querySelector(".rightBText");
@@ -103,8 +96,16 @@ function displayItemCards () {
             newImage[i] = document.createElement("img");
             newImage[i].src = itemCards[i].cardImg;
             newImage[i].onclick = function () {
-                newImage[i].classList.toggle("itemUsed");
-                newImage[i].classList.toggle("itemCard");
+                if (itemCards[i].cardType == "oneshot") {
+                    if (confirm(`Use ${itemCards[i].cardName} ? \nThis will consume item for the rest of this scenario`)) {
+                        itemCards[i].cardStatus = "used";
+                        displayItemCards();
+                    }
+                }
+                if (itemCards[i].cardType == "reusable") {
+                    newImage[i].classList.toggle("itemUsed");
+                    newImage[i].classList.toggle("itemCard");
+                }
             }
             newImage[i].classList.add("itemCard");
             newImage[i].setAttribute("id",itemCards[i].cardId);
@@ -121,7 +122,8 @@ function displayHandMain() {
     if (cardsInView <= maxCards) { 
         distext.innerHTML = "Hand";
     } else {
-        distext.innerHTML = `Hand - Lose Down to ${maxCards}`;
+        let cardsToLose = cardsInView - maxCards;
+        distext.innerHTML = `Hand - Lose ${cardsToLose} Cards`;
     }
     displayRightA("Discard","discard");
     displayRightB("Lost","lost");
@@ -143,7 +145,6 @@ function displayLostMain() {
     displayRightB("Hand","hand");
 
 }
-
 
 function displayMainView() {
     if (currentView == "hand") {
@@ -666,17 +667,23 @@ const demoItemCards = [
     {
         cardId: 0,
         cardStatus: "active",
-        cardImg: "images/Items/iron-helmet.png"
+        cardImg: "images/Items/iron-helmet.png",
+        cardType: "permanent",
+        cardName: "Iron Helmet",
     },
     {
         cardId: 1,
         cardStatus: "active",
-        cardImg: "images/Items/healing-potion.png"
+        cardImg: "images/Items/healing-potion.png",
+        cardType: "oneshot",
+        cardName: "Healing Potion",
     },
     {
         cardId: 2,
         cardStatus: "active",
-        cardImg: "images/Items/winged-shoes.png"
+        cardImg: "images/Items/winged-shoes.png",
+        cardType: "reusable",
+        cardName: "Winged Shoes",
     },
     
     
@@ -686,24 +693,34 @@ const hatchItemCards = [
     {
         cardId: 0,
         cardStatus: "active",
-        cardImg: "images/Items/eagle-eye-goggles.png"
+        cardImg: "images/Items/eagle-eye-goggles.png",
+        cardType: "reusable",
+        cardName: "Eagle-Eye Goggles",
     },
     {
         cardId: 1,
         cardStatus: "active",
-        cardImg: "images/Items/mana-potion.png"
+        cardImg: "images/Items/mana-potion.png",
+        cardType: "oneshot",
+        cardName: "Mana Potion",
     },
 ]
 const redItemCards = [
     {
         cardId: 0,
         cardStatus: "active",
-        cardImg: "images/Items/iron-spear.png"
+        cardImg: "images/Items/iron-spear.png",
+        cardType: "reusable",
+        cardName: "Iron Spear",
+
     },
     {
         cardId: 1,
         cardStatus: "active",
-        cardImg: "images/Items/fateful-compass.png"
+        cardImg: "images/Items/fateful-compass.png",
+        cardType: "oneshot",
+        cardName: "Fateful Compass",
+
     },
     
 ]
@@ -711,22 +728,31 @@ const voidItemCards = [
     {
         cardId: 0,
         cardStatus: "active",
-        cardImg: "images/Items/heater-shield.png"
+        cardImg: "images/Items/heater-shield.png",
+        cardType: "reusable",
+        cardName: "Heater Shield",
+
     },
     {
         cardId: 1,
         cardStatus: "active",
-        cardImg: "images/Items/mana-potion.png"
+        cardImg: "images/Items/mana-potion.png",
+        cardType: "oneshot",
+        cardName: "Mana Potion",
+
     },
     {
         cardId: 2,
         cardStatus: "active",
-        cardImg: "images/Items/winged-shoes.png"
+        cardImg: "images/Items/winged-shoes.png",
+        cardType: "reusable",
+        cardName: "Winged Shoes",
+
     },
     
 ]
 
-var maxCards = 11;
+var maxCards = 9;
 var abilityCards = demoCards;
 var itemCards = demoItemCards;
 var currentView = "hand";
