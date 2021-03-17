@@ -292,9 +292,6 @@ function voidCardClicked () {
 }
 
 
-
-
-
 //***** */ main code
 
 // Setup Object
@@ -767,8 +764,6 @@ var currentView = "hand";
 var cardsInView = 0;
 var cardDraggedId = null;
 
-const rightButtonAPressed = document.querySelector(".rightAButton");
-const rightButtonBPressed = document.querySelector(".rightBButton");
 const returnDiscardsPressed = document.querySelector(".returnDiscardsButton")
 const shortRestPressed = document.querySelector(".shortRestButton");
 const mainArea = document.querySelector(".mainContainer");
@@ -781,14 +776,14 @@ const redCard = document.querySelector(".redCardImg");
 const voidCard = document.querySelector(".voidCardImg");
 
 
-rightButtonAPressed.addEventListener("click",rightAClicked);
-rightButtonBPressed.addEventListener("click",rightBClicked);
 returnDiscardsPressed.addEventListener("click",returnDiscards)
 shortRestPressed.addEventListener("click",shortRest);
 mainArea.addEventListener("dragover", elementDraggedOver);
 mainArea.addEventListener("drop", maindropped);
+rightAArea.addEventListener("click",rightAClicked);
 rightAArea.addEventListener("dragover", elementDraggedOver);
 rightAArea.addEventListener("drop", rightAdropped);
+rightBArea.addEventListener("click",rightBClicked);
 rightBArea.addEventListener("dragover", elementDraggedOver);
 rightBArea.addEventListener("drop", rightBdropped);
 rightCArea.addEventListener("dragover", elementDraggedOver);
