@@ -722,6 +722,14 @@ const redItemCards = [
         cardName: "Fateful Compass",
 
     },
+    {
+        cardId: 2,
+        cardStatus: "active",
+        cardImg: "images/Items/studded-leather.png",
+        cardType: "reusable",
+        cardName: "Studded Leather",
+
+    },
     
 ]
 const voidItemCards = [
