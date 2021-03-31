@@ -376,6 +376,12 @@ const demoCards = [
         cardStatus: "hand",
         cardImg: "images/Demolitionist/cards-lev2/crash-protocol.png",
         cardName: "Crash Protocol",
+    }, 
+    {
+        cardId: 13,
+        cardStatus: "hand",
+        cardImg: "images/Demolitionist/cards-lev3/fire-bombs.png",
+        cardName: "Fire Bombs",
     },   
 ]
 
@@ -463,6 +469,12 @@ const hatchCards = [
         cardStatus: "hand",
         cardImg: "images/Hatchet/cards-lev2/ricochet.png",
         cardName: "Ricochet",
+    },  
+    {
+        cardId: 14,
+        cardStatus: "hand",
+        cardImg: "images/Hatchet/cards-lev3/sharpened-blades.png",
+        cardName: "Sharpened Blades",
     },  
 ]
 
@@ -554,6 +566,12 @@ const redCards = [
         cardImg: "images/RedGuard/cards-lev2/harvest-sickle.png",
         cardName: "Harvest Sickle",
     },  
+    {
+        cardId: 14,
+        cardStatus: "hand",
+        cardImg: "images/RedGuard/cards-lev3/strangling-chain.png",
+        cardName: "Strangling Chain",
+    }, 
 
 ]
 
@@ -655,6 +673,13 @@ const voidCards = [
         cardStatus: "hand",
         cardImg: "images/VoidWarden/cards-lev2/crushing-cold.png",
         cardName: "Crushing Cold",
+
+    },
+    {
+        cardId: 15,
+        cardStatus: "hand",
+        cardImg: "images/VoidWarden/cards-lev3/commanding-presence.png",
+        cardName: "Commanding Presence",
 
     },
     
@@ -792,6 +817,8 @@ demoCard.addEventListener("click", demoCardClicked);
 hatchCard.addEventListener("click", hatchCardClicked);
 redCard.addEventListener("click", redCardClicked);
 voidCard.addEventListener("click", voidCardClicked);
+
+
 
 
 displayItemCards();
