@@ -123,7 +123,7 @@ function displayHandMain() {
         distext.innerHTML = "Hand";
     } else {
         let cardsToLose = cardsInView - maxCards;
-        distext.innerHTML = `Hand - Lose ${cardsToLose} Cards`;
+        distext.innerHTML = `Hand - Lose ${cardsToLose} Cards Before Starting`;
     }
     displayRightA("Discard","discard");
     displayRightB("Lost","lost");

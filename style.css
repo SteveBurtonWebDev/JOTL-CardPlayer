@@ -24,7 +24,7 @@ body {
     display: grid;
     grid-template-columns: 10vw 80vw 10vw;
     /* grid-template-rows: 12vh 12vh 56vh 20vh; */
-    grid-template-rows: 76vh 4vh 8vh 12vh;
+    grid-template-rows: 70vh 7vh 8vh 15vh;
 
 }
 img {
@@ -70,7 +70,7 @@ button {
 
 .mainView {
     border: 4px solid black;
-    grid-area: 1 / 2 / 4 / 3 ;
+    grid-area: 1 / 2 / 3 / 3 ;
     display: flex;
     flex-direction: column;
 }
@@ -98,6 +98,10 @@ button {
 }
 
 @media only screen and (max-width: 1400px) {
+    .mainView {
+        grid-area: 1 / 2/ 4 / 3;
+    }
+
     .mainView h4 {
         font-size: 1.5rem;
     }
@@ -152,13 +156,13 @@ button {
         width: 12%;
     }
     .card:hover {
-        transform: scale(2.1) translateY(30px);
+        transform: scale(2) translateY(30px);
     }
     .smallCard { 
         width: 7%;
     }
     .smallCard:hover {
-        transform: scale(4) translateY(20px);
+        transform: scale(3.8) translateY(30px);
     }
     
 }
@@ -220,10 +224,17 @@ button {
 }
 
 .itemCard:hover {
-    transform: scale(3.5) translateY(-40px);
+    transform: scale(1.8) translateY(-45px);
     z-index: 999;
 }
 
+
+@media only screen and (max-width: 1400px) {
+    .itemCard:hover {
+        transform: scale(2.6) translateY(-35px);
+
+    }
+}
 
 
 .rightAContainer {
@@ -287,13 +298,13 @@ button {
     color: #e0cdbd;
     font-size: 1.4em;
     text-align: center;
-    height: 10%;
+    height: 5%;
 }
 
 .rightCContainer .activeContainer {
     display: flex;
     flex-direction: column;
-    height: 90%;
+    height: 95%;
     align-items: center;
 }
 
@@ -304,11 +315,19 @@ button {
  }
 
  .activeCard:hover {
-     transform: scale(1.7) translateX(-50px) translateY(25px);
+     transform: scale(2.3) translateX(-50px) translateY(40px);
  }
 
  @media only screen and (max-width: 1400px) {
+     .rightCContainer h4 {
+         height: 7%;
+     }
+     .rightCContainer .activeContainer {
+         height: 93%;
+     }
+
+
    .activeCard:hover {
-       transform: scale(2.5) translateX(-50px) translateY(25px);
+       transform: scale(2.5) translateX(-40px) translateY(30px);
    }
 }
