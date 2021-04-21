@@ -572,6 +572,12 @@ const redCards = [
         cardImg: "images/RedGuard/cards-lev3/strangling-chain.png",
         cardName: "Strangling Chain",
     }, 
+    {
+        cardId: 15,
+        cardStatus: "hand",
+        cardImg: "images/RedGuard/cards-lev4/radiant-sickle.png",
+        cardName: "Radiant Sickle",
+    }, 
 
 ]
 
@@ -681,6 +687,12 @@ const voidCards = [
         cardImg: "images/VoidWarden/cards-lev3/commanding-presence.png",
         cardName: "Commanding Presence",
 
+    },
+    {
+        cardId: 16,
+        cardStatus: "hand",
+        cardImg: "images/VoidWarden/cards-lev4/the-last-journey.png",
+        cardName: "The Last Journey",
     },
     
 ]
