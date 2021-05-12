@@ -383,6 +383,12 @@ const demoCards = [
         cardImg: "images/Demolitionist/cards-lev3/fire-bombs.png",
         cardName: "Fire Bombs",
     },   
+    {
+        cardId: 13,
+        cardStatus: "hand",
+        cardImg: "images/Demolitionist/cards-lev4/remote-detonation.png",
+        cardName: "Remote Detonation",
+    },   
 ]
 
 const hatchCards = [
@@ -475,7 +481,13 @@ const hatchCards = [
         cardStatus: "hand",
         cardImg: "images/Hatchet/cards-lev3/sharpened-blades.png",
         cardName: "Sharpened Blades",
-    },  
+    }, 
+    {
+        cardId: 15,
+        cardStatus: "hand",
+        cardImg: "images/Hatchet/cards-lev4/overwatch.png",
+        cardName: "Overwatch",
+    }, 
 ]
 
 
