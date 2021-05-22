@@ -294,7 +294,7 @@ function voidCardClicked () {
 
 //***** */ main code
 
-// Setup Object
+// Setup Objects
 
 
 const demoCards = [
@@ -490,7 +490,6 @@ const hatchCards = [
     }, 
 ]
 
-
 const redCards = [
     {
         cardId: 0,
@@ -592,8 +591,6 @@ const redCards = [
     }, 
 
 ]
-
-
 
 const voidCards = [
     {
@@ -731,8 +728,28 @@ const demoItemCards = [
         cardType: "reusable",
         cardName: "Winged Shoes",
     },
-    
-    
+    {
+        cardId: 3,
+        cardStatus: "active",
+        cardImg: "images/Items/stamina-potion.png",
+        cardType: "oneshot",
+        cardName: "Stamina Potion",
+    },
+    {
+        cardId: 4,
+        cardStatus: "active",
+        cardImg: "images/Items/heater-shield.png",
+        cardType: "reusable",
+        cardName: "Heater Shield",
+
+    },
+    {
+        cardId: 5,
+        cardStatus: "active",
+        cardImg: "images/Items/ring-of-haste.png",
+        cardType: "oneshot",
+        cardName: "Ring Of Haste",
+    },    
 ]
 
 const hatchItemCards = [
@@ -749,6 +766,20 @@ const hatchItemCards = [
         cardImg: "images/Items/mana-potion.png",
         cardType: "oneshot",
         cardName: "Mana Potion",
+    },
+    {
+        cardId: 2,
+        cardStatus: "active",
+        cardImg: "images/Items/robes-of-evocation.png",
+        cardType: "reusable",
+        cardName: "Robes Of Evocation",
+    },
+    {
+        cardId: 3,
+        cardStatus: "active",
+        cardImg: "images/Items/stamina-potion.png",
+        cardType: "oneshot",
+        cardName: "Stamina Potion",
     },
 ]
 const redItemCards = [
@@ -776,6 +807,22 @@ const redItemCards = [
         cardName: "Studded Leather",
 
     },
+    {
+        cardId: 3,
+        cardStatus: "active",
+        cardImg: "images/Items/amulet-of-life.png",
+        cardType: "reusable",
+        cardName: "Amulet Of Life",
+
+    },
+    {
+        cardId: 4,
+        cardStatus: "active",
+        cardImg: "images/Items/battle-axe.png",
+        cardType: "oneshot",
+        cardName: "Battle Axe",
+
+    },
     
 ]
 const voidItemCards = [
@@ -801,6 +848,21 @@ const voidItemCards = [
         cardImg: "images/Items/winged-shoes.png",
         cardType: "reusable",
         cardName: "Winged Shoes",
+
+    },
+    {
+        cardId: 3,
+        cardStatus: "active",
+        cardImg: "images/Items/iron-helmet.png",
+        cardType: "permanent",
+        cardName: "Iron Helmet",
+    },
+    {
+        cardId: 4,
+        cardStatus: "active",
+        cardImg: "images/Items/stun-powder.png",
+        cardType: "oneshot",
+        cardName: "Stun Powder",
 
     },
     
